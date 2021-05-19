@@ -1,15 +1,17 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import FrontPage from './components/FrontPage.js';
+import React from "react";
+import { StyleSheetManager } from "styled-components";
+import "./App.css";
+import FrontPage from "./components/FrontPage.js";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <FrontPage></FrontPage>
-      </header>
-    </div>
+    <StyleSheetManager disableVendorPrefixes>
+      <div className="App">
+        <header className="App-header">
+          <FrontPage></FrontPage>
+        </header>
+      </div>
+    </StyleSheetManager>
   );
 }
 
