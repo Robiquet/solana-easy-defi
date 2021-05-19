@@ -2,6 +2,7 @@ import Wallet from "@project-serum/sol-wallet-adapter";
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useState } from "react";
 import styled from "styled-components";
+import FeatureCard from "./FeatureCard";
 
 const ContainerCol = styled.section`
   display: flex;
@@ -14,8 +15,8 @@ const ContainerCol = styled.section`
 const Header = styled.h1``;
 
 const SubHeader = styled.h2`
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 24px;
+  font-weight: 600;
 `;
 
 const CardsContainer = styled.div`
@@ -23,13 +24,6 @@ const CardsContainer = styled.div`
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-`;
-
-const FeatureCard = styled.div`
-  width: 200px;
-  height: 200px;
-  background-color: grey;
-  border: 1px solid black;
 `;
 
 const FrontPage = () => {
@@ -59,9 +53,9 @@ const FrontPage = () => {
       <Header>DeFi Investing shouldn't be Rocket Science</Header>
       <SubHeader>DeFi is complicated, we make it simple</SubHeader>
       <CardsContainer>
-        <FeatureCard></FeatureCard>
-        <FeatureCard></FeatureCard>
-        <FeatureCard></FeatureCard>
+        <FeatureCard>Get an overview of Rates</FeatureCard>
+        <FeatureCard>Stake your assets in one click</FeatureCard>
+        <FeatureCard>Automate your trading with bots</FeatureCard>
       </CardsContainer>
       <button onClick={handleConnect}>Connect Wallet</button>
       <div>{balance}</div>

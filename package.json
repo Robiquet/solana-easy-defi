@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@project-serum/sol-wallet-adapter": "^0.2.0",
     "@solana/web3.js": "^1.11.0",
     "@testing-library/jest-dom": "^5.11.4",
