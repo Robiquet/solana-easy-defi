@@ -1,8 +1,8 @@
-import Wallet from "@project-serum/sol-wallet-adapter";
+import Wallet from "@project-serum/sol-wallet-adapter"; //does seem to support ts
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useState } from "react";
 import styled from "styled-components";
-import FeatureCard from "./FeatureCard";
+import FeatureCard from "../components/FeatureCard";
 
 const ContainerCol = styled.section`
   display: flex;
@@ -26,7 +26,7 @@ const CardsContainer = styled.div`
   width: 100%;
 `;
 
-const FrontPage = () => {
+const Home = () => {
   const [balance, setBalance] = useState();
   const [publicKey, setPublicKey] = useState();
 
@@ -53,7 +53,7 @@ const FrontPage = () => {
       <Header>DeFi Investing shouldn't be Rocket Science</Header>
       <SubHeader>DeFi is complicated, we make it simple</SubHeader>
       <CardsContainer>
-        <FeatureCard>Get an overview of Rates</FeatureCard>
+        <FeatureCard>Get an overview of rates</FeatureCard>
         <FeatureCard>Stake your assets in one click</FeatureCard>
         <FeatureCard>Automate your trading with bots</FeatureCard>
       </CardsContainer>
@@ -64,4 +64,4 @@ const FrontPage = () => {
   );
 };
 
-export default FrontPage;
+export default Home;
