@@ -1,15 +1,18 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { StyleSheetManager } from "styled-components";
 import "./App.css";
-import Home from "./pages/Home.js";
-import { BrowserRouter as Router, Switch, Route, } from "react-router-dom";
+import LeftNav from "./components/LeftNav";
 import Dashboard from "./pages/Dashboard";
+import Home from "./pages/Home.js";
+import Staking from "./pages/Staking";
 
 function App() {
   return (
     <StyleSheetManager disableVendorPrefixes>
-        <Router>
-
+      <Router>
+        <main className="flex">
+          <LeftNav></LeftNav>
           <Switch>
             <Route exact path="/">
               <Home></Home>
@@ -17,8 +20,12 @@ function App() {
             <Route path="/dashboard">
               <Dashboard />
             </Route>
+            <Route path="/staking">
+              <Staking />
+            </Route>
           </Switch>
-          </Router>
+        </main>
+      </Router>
     </StyleSheetManager>
   );
 }

@@ -27,7 +27,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col md:h-screen justify-around items-center">
+    <div className="flex flex-col md:h-screen justify-around items-center flex-grow">
       <h1 className="font-bold text-2xl">DeFi Investing shouldn't be Rocket Science</h1>
       <h2 className="font-semibold text-lg">DeFi is complicated, we make it simple</h2>
       <div className="flex flex-wrap justify-evenly w-screen">
