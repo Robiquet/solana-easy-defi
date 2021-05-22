@@ -1,5 +1,12 @@
-const Dashboard = ()=> {
-    return <div>Dasboard</div>
-}
+import LineChart from "../components/LineChart.js";
 
-export default Dashboard
+const Dashboard = () => {
+
+  return (
+    <div >
+        <LineChart></LineChart>
+    </div>
+  );
+};
+
+export default Dashboard;

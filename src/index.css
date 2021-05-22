@@ -15,3 +15,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+g.Series path:first-child{
+  fill: #7879F1 !important;
+} 
+
