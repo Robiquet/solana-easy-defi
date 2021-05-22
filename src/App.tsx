@@ -8,8 +8,6 @@ import Dashboard from "./pages/Dashboard";
 function App() {
   return (
     <StyleSheetManager disableVendorPrefixes>
-      <div className="App">
-        <header className="App-header">
         <Router>
 
           <Switch>
@@ -21,9 +19,6 @@ function App() {
             </Route>
           </Switch>
           </Router>
-
-        </header>
-      </div>
     </StyleSheetManager>
   );
 }

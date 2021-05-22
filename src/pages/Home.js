@@ -1,30 +1,8 @@
 import Wallet from "@project-serum/sol-wallet-adapter"; //does seem to support ts
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useState } from "react";
-import styled from "styled-components";
 import FeatureCard from "../components/FeatureCard";
 
-const ContainerCol = styled.section`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-around;
-  height: 100vh;
-`;
-
-const Header = styled.h1``;
-
-const SubHeader = styled.h2`
-  font-size: 24px;
-  font-weight: 600;
-`;
-
-const CardsContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
-`;
 
 const Home = () => {
   const [balance, setBalance] = useState();
@@ -49,18 +27,18 @@ const Home = () => {
   };
 
   return (
-    <ContainerCol>
-      <Header>DeFi Investing shouldn't be Rocket Science</Header>
-      <SubHeader>DeFi is complicated, we make it simple</SubHeader>
-      <CardsContainer>
+    <div className="flex flex-col md:h-screen justify-around items-center">
+      <h1 className="font-bold text-2xl">DeFi Investing shouldn't be Rocket Science</h1>
+      <h2 className="font-semibold text-lg">DeFi is complicated, we make it simple</h2>
+      <div className="flex flex-wrap justify-evenly w-screen">
         <FeatureCard>Get an overview of rates</FeatureCard>
         <FeatureCard>Stake your assets in one click</FeatureCard>
         <FeatureCard>Automate your trading with bots</FeatureCard>
-      </CardsContainer>
-      <button onClick={handleConnect}>Connect Wallet</button>
+      </div>
+      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52" onClick={handleConnect}>Connect Wallet</button>
       <div>{balance}</div>
       <div>{publicKey}</div>
-    </ContainerCol>
+    </div>
   );
 };
 
