@@ -44,7 +44,7 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col md:h-screen justify-around items-center flex-grow">
+    <div className="flex flex-col md:h-screen justify-around ml-4 flex-grow">
       <h1 className="font-bold text-2xl">
         DeFi Investing shouldn't be Rocket Science
       </h1>
