@@ -2,20 +2,32 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const LeftNav = () => {
+  const links = [
+    {
+      to: "/",
+      text: "Home",
+    },
+    {
+      to: "/onboarding",
+      text: "Onboarding",
+    },
+    {
+      to: "/dashboard",
+      text: "Dashboard",
+    },
+    {
+      to: "/staking",
+      text: "Staking",
+    },
+  ];
+
   return (
-    <ul className="border border-gray-300 border-solid pr-10">
-      <li>
-        <Link to="/">Home</Link>
-      </li>
-      <li>
-        <Link to="/onboarding">Onboarding</Link>
-      </li>
-      <li>
-        <Link to="/dashboard">Dashboard</Link>
-      </li>
-      <li>
-        <Link to="/staking">Staking</Link>
-      </li>
+    <ul className="border-r-2 border-gray-300 border-solid pr-10 pl-4 pt-4 border-opacity-50">
+      {links.map((link) => (
+        <li className="pb-2 font-semibold">
+          <Link to={link.to}>{link.text}</Link>
+        </li>
+      ))}
     </ul>
   );
 };
