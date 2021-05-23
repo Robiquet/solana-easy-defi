@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 export interface PoolDetails {
   apy: number;
   fees: number;
@@ -8,8 +10,14 @@ export interface PoolDetails {
 }
 
 const PoolCard = ({details}: { details: PoolDetails }) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push('pool-chart')
+  }
+
   return (
-    <div className="flex flex-col  rounded bg-green-200 p-5">
+    <div onClick={handleClick} className="flex flex-col  rounded bg-green-200 p-5 cursor-pointer">
       <h3 className="text-2xl font-bold mb-3">
         {details?.tokenA} - {details?.tokenB}
       </h3>

@@ -6,6 +6,7 @@ import LeftNav from "./components/LeftNav";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home.js";
 import OnBoarding from "./pages/Onboarding";
+import PoolChart from "./pages/PoolChart";
 import Staking from "./pages/Staking";
 
 function App() {
@@ -26,6 +27,9 @@ function App() {
             </Route>
             <Route path="/onboarding">
               <OnBoarding />
+            </Route>
+            <Route path="/pool-chart">
+              <PoolChart />
             </Route>
           </Switch>
         </main>

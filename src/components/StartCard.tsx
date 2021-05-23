@@ -1,7 +1,17 @@
+import { useHistory } from "react-router-dom";
 
-const StartCard = ({details}: any) => {
+interface StartCardDetails {
+    title:string;
+    description:string;
+    buttonText:string;
+    buttonLink:string;
+}
+
+const StartCard = ({details}: {details: StartCardDetails}) => {
+    const history = useHistory();
+
     const handleClick = () => {
-
+       history.push(details.buttonLink);
     }
 
     return (

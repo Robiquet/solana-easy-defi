@@ -2,10 +2,14 @@ import Wallet from "@project-serum/sol-wallet-adapter"; //does seem to support t
 import { clusterApiUrl, Connection, PublicKey } from "@solana/web3.js";
 import { useState } from "react";
 import FeatureCard from "../components/FeatureCard";
+import { useHistory } from "react-router-dom";
+
 
 const Home = () => {
   const [balance, setBalance] = useState();
   const [publicKey, setPublicKey] = useState();
+  const history = useHistory();
+
 
   const features = [
     {
@@ -41,6 +45,8 @@ const Home = () => {
       "8KDdfccDqh1yrShSLqdVUyukt8mX5r6HEEPWUUFosEHF"
     );
     console.log(await connection.getTokenAccountBalance(tokenaddress));
+    history.push('/onboarding');
+
   };
 
   return (

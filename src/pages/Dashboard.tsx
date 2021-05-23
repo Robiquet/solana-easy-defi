@@ -1,12 +1,5 @@
-import LineChart from "../components/LineChart.js";
-
 const Dashboard = () => {
-
-  return (
-    <div >
-        <LineChart></LineChart>
-    </div>
-  );
+  return <div>Dashboard</div>;
 };
 
 export default Dashboard;
