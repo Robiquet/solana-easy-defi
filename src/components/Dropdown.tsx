@@ -1,4 +1,4 @@
-interface DropdownOptions {
+export interface DropdownOption {
   value: any;
   text: string;
 }
@@ -6,12 +6,22 @@ interface DropdownOptions {
 const Dropdown = ({
   options,
   placeholder,
+  onChange,
 }: {
-  options: DropdownOptions[];
+  options: DropdownOption[];
   placeholder: string;
+  onChange: (dropdownOption: DropdownOption | undefined) => void;
 }) => {
+    
+  const handleChange = (event: any) => {
+    onChange(options.find((option) => event.target.value == option.value));
+  };
+
   return (
-    <select className="bg-blue-500 py-2 pl-4 text-sm text-white w-44 rounded-md  focus:outline-none focus:appearance-none rounded-full">
+    <select
+      onChange={handleChange}
+      className="bg-blue-500 py-2 pl-4 text-sm text-white w-44 rounded-md  focus:outline-none focus:appearance-none rounded-full"
+    >
       <option value="" disabled selected>
         {placeholder}
       </option>
