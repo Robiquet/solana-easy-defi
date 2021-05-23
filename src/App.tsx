@@ -5,6 +5,7 @@ import "./App.css";
 import LeftNav from "./components/LeftNav";
 import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home.js";
+import OnBoarding from "./pages/Onboarding";
 import Staking from "./pages/Staking";
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
             </Route>
             <Route path="/staking">
               <Staking />
+            </Route>
+            <Route path="/onboarding">
+              <OnBoarding />
             </Route>
           </Switch>
         </main>
