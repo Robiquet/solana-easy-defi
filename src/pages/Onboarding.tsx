@@ -28,8 +28,8 @@ const OnBoarding = () => {
       <h1 className="font-bold text-2xl mb-4">Seamless DeFi Investing</h1>
       <h2 className="font-semibold text-lg mb-6">We help you make better choices</h2>
       <div className="flex flex-wrap w-full h-full gap-10">
-        {options.map((option) => (
-          <StartCard details={option}></StartCard>
+        {options.map((option,index) => (
+          <StartCard key={index} details={option}></StartCard>
         ))}
       </div>
     </div>

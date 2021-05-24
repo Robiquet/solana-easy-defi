@@ -12,7 +12,6 @@ const Dropdown = ({
   placeholder: string;
   onChange: (dropdownOption: DropdownOption | undefined) => void;
 }) => {
-    
   const handleChange = (event: any) => {
     onChange(options.find((option) => event.target.value == option.value));
   };
@@ -25,8 +24,10 @@ const Dropdown = ({
       <option value="" disabled selected>
         {placeholder}
       </option>
-      {options.map((item) => (
-        <option value={item.value}>{item.text}</option>
+      {options.map((item, index) => (
+        <option key={index} value={item.value}>
+          {item.text}
+        </option>
       ))}
     </select>
   );

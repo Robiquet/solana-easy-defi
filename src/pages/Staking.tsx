@@ -91,8 +91,8 @@ const Staking = () => {
       </div>
 
       <div className="flex flex-wrap w-full gap-y-10 gap-x-10">
-        {pools.map((pool) => (
-          <PoolCard details={pool}></PoolCard>
+        {pools.map((pool,index) => (
+          <PoolCard key={index} details={pool}></PoolCard>
         ))}
       </div>
 
