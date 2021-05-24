@@ -29,7 +29,8 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -51,7 +52,10 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
+    "husky": "^6.0.0",
     "postcss": "^7.0.35",
+    "prettier": "2.3.0",
+    "pretty-quick": "^3.1.0",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
   }
 }
