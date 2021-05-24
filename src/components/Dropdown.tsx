@@ -20,8 +20,9 @@ const Dropdown = ({
     <select
       onChange={handleChange}
       className="bg-blue-500 py-2 pl-4 text-sm text-white w-44 rounded-md  focus:outline-none focus:appearance-none rounded-full"
+      defaultValue=""    
     >
-      <option value="" disabled selected>
+      <option value="" disabled>
         {placeholder}
       </option>
       {options.map((item, index) => (
