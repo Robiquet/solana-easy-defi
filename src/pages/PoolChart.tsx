@@ -1,9 +1,9 @@
-import LineChart from "../components/LineChart.js";
+import TabbedChart from "../components/TabbedChart";
 
 const PoolChart = () => {
   return (
-    <div>
-      <LineChart></LineChart>
+    <div className="mt-4">
+      <TabbedChart></TabbedChart>
     </div>
   );
 };

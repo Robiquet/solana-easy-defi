@@ -1,26 +1,26 @@
 import React from "react";
 import { Chart } from "react-charts";
 
-const LineChart = () => {
-  const data = React.useMemo(
+const LineChart = ({ data }) => {
+  const memoData = React.useMemo(
     () => [
       {
         label: "Series 1",
-        data: [
-          [0, 1],
-          [1, 2],
-          [2, 4],
-          [3, 2],
-          [4, 7],
-        ],
+        data: data.map((item) => [item.x, item.y]),
       },
     ],
-    []
+    [data]
   );
 
   const axes = React.useMemo(
     () => [
-      { primary: true, type: "linear", position: "bottom", showGrid: false, showTicks: false },
+      {
+        primary: true,
+        type: "linear",
+        position: "bottom",
+        showGrid: false,
+        showTicks: false,
+      },
       { type: "linear", position: "left", showGrid: false, showTicks: false },
     ],
     []
@@ -40,7 +40,7 @@ const LineChart = () => {
         height: "300px",
       }}
     >
-      <Chart data={data} axes={axes} series={series} />
+      <Chart data={memoData} axes={axes} series={series} />
     </div>
   );
 };
