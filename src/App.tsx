@@ -7,7 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home.js";
 import OnBoarding from "./pages/Onboarding";
 import PoolChart from "./pages/PoolChart";
-import Staking from "./pages/Staking";
+import Poolng from "./pages/Pooling";
 
 function App() {
   return (
@@ -22,8 +22,8 @@ function App() {
             <Route path="/dashboard">
               <Dashboard />
             </Route>
-            <Route path="/staking">
-              <Staking />
+            <Route path="/pooling">
+              <Poolng />
             </Route>
             <Route path="/onboarding">
               <OnBoarding />

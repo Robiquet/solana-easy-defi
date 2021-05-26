@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Dropdown, { DropdownOption } from "../components/Dropdown";
 import PoolCard, { PoolDetails } from "../components/PoolCard";
 
-const Staking = () => {
+const Pooling = () => {
   const [pools, setPools] = useState<PoolDetails[]>([]);
   const [usdAmount, setUsdAmount] = useState<number>();
   const [timePeriod, setTimePeriod] = useState<number>();
@@ -28,7 +28,7 @@ const Staking = () => {
 
   useEffect(() => {
     async function checkConnection() {
-      const response = await fetch("http://13.234.67.237/pools");
+      const response = await fetch("https://api.radardefi.com/pools");
       const json = await response.json();
       setPools(json);
     }
@@ -38,7 +38,7 @@ const Staking = () => {
 
   useEffect(() => {
     recalulatePoolReturns();
-  }, [timePeriod,usdAmount])
+  }, [timePeriod, usdAmount]);
 
   const handleUsdChange = (event: any) => {
     setUsdAmount(event.target.value);
@@ -91,7 +91,7 @@ const Staking = () => {
       </div>
 
       <div className="flex flex-wrap w-full gap-y-10 gap-x-10">
-        {pools.map((pool,index) => (
+        {pools.map((pool, index) => (
           <PoolCard key={index} details={pool}></PoolCard>
         ))}
       </div>
@@ -100,4 +100,4 @@ const Staking = () => {
     </div>
   );
 };
-export default Staking;
+export default Pooling;

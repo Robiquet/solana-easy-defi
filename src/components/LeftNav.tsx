@@ -64,8 +64,12 @@ const links = [
     text: "Dashboard",
   },
   {
-    to: "/staking",
-    text: "Staking",
+    to: "/pooling",
+    text: "Pooling",
+  },
+  {
+    to: "/farming",
+    text: "Farming",
   },
 ];
 
