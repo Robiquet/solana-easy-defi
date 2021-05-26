@@ -4,6 +4,7 @@ import { StyleSheetManager } from "styled-components";
 import "./App.css";
 import LeftNav from "./components/LeftNav";
 import Dashboard from "./pages/Dashboard";
+import Farming from "./pages/Farming";
 import Home from "./pages/Home.js";
 import OnBoarding from "./pages/Onboarding";
 import PoolChart from "./pages/PoolChart";
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/pooling">
               <Poolng />
+            </Route>
+            <Route path="/farming">
+              <Farming />
             </Route>
             <Route path="/onboarding">
               <OnBoarding />
