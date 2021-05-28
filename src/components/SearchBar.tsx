@@ -1,4 +1,19 @@
-const SearchBar = () => {
+import { useState } from "react";
+
+const SearchBar = ({
+  placeHolder,
+  onChange,
+}: {
+  placeHolder: string;
+  onChange: (search: string) => void;
+}) => {
+  const [searchValue, setSearchValue] = useState<string>("");
+
+  const handleInputChange = (event: any) => {
+    setSearchValue(event.target.value);
+    onChange(event.target.value);
+  };
+
   return (
     <div className="flex items-center justify-center relative text-gray-600 focus-within:text-gray-500">
       <span className="absolute inset-y-0 left-0 flex items-center pl-2">
@@ -21,9 +36,10 @@ const SearchBar = () => {
       </span>
       <input
         type="search"
-        name="q"
-        className="py-2 text-sm text-white bg-gray-800 rounded-md pl-10 focus:outline-none focus:bg-white-700 focus:text-white rounded-full"
-        placeholder="Search..."
+        value={searchValue}
+        onChange={handleInputChange}
+        className="py-2 text-sm text-white text-gray-800 bg-gray-100 rounded-md pl-10 focus:outline-none focus:bg-white-700 rounded-full"
+        placeholder={placeHolder}
         autoComplete="off"
       ></input>
     </div>

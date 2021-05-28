@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Dropdown, { DropdownOption } from "../components/Dropdown";
 import PoolCard, { PoolDetails } from "../components/PoolCard";
+import SearchBar from "../components/SearchBar";
 
 const Pooling = () => {
   const [pools, setPools] = useState<PoolDetails[]>([]);
+  const [filterPools, setFilterPools] = useState<PoolDetails[]>([]);
   const [usdAmount, setUsdAmount] = useState<number>();
   const [timePeriod, setTimePeriod] = useState<number>();
+  const [search, setSearch] = useState<string>("");
 
   const timeOptions = [
     {
@@ -27,18 +30,17 @@ const Pooling = () => {
   ];
 
   useEffect(() => {
-    async function checkConnection() {
+    async function getPools() {
       const response = await fetch("https://api.radardefi.com/pools");
       const json = await response.json();
       setPools(json);
     }
-
-    checkConnection();
+    getPools();
   }, []);
 
   useEffect(() => {
-    recalulatePoolReturns();
-  }, [timePeriod, usdAmount]);
+    processPools();
+  }, [timePeriod, usdAmount, search, pools]);
 
   const handleUsdChange = (event: any) => {
     setUsdAmount(event.target.value);
@@ -48,18 +50,28 @@ const Pooling = () => {
     setTimePeriod(option?.value);
   };
 
-  const recalulatePoolReturns = () => {
-    const newPools = pools.map((pool) => {
-      return {
-        ...pool,
-        totalYield:
-          timePeriod && usdAmount
-            ? calculateYield(timePeriod, usdAmount, pool)
-            : undefined,
-      };
-    });
+  const handleSearchChange = (search: string) => {
+    setSearch(search);
+  };
 
-    setPools(newPools);
+  const processPools = () => {
+    const newPools = pools
+      .filter(
+        (pool) =>
+          search === "" ||
+          pool.tokenA?.includes(search) ||
+          pool.tokenB?.includes(search)
+      )
+      .map((pool) => {
+        return {
+          ...pool,
+          totalYield:
+            timePeriod && usdAmount
+              ? calculateYield(timePeriod, usdAmount, pool)
+              : undefined,
+        };
+      });
+    setFilterPools(newPools);
   };
 
   const calculateYield = (
@@ -82,21 +94,22 @@ const Pooling = () => {
           placeholder="Enter USD"
           autoComplete="off"
         ></input>
-
         <Dropdown
           placeholder="Choose Period"
           options={timeOptions}
           onChange={handleTimePeriodChange}
         ></Dropdown>
+        <SearchBar
+          placeHolder="Choose a pool"
+          onChange={handleSearchChange}
+        ></SearchBar>
       </div>
 
       <div className="flex flex-wrap w-full gap-y-10 gap-x-10">
-        {pools.map((pool, index) => (
+        {filterPools.map((pool, index) => (
           <PoolCard key={index} details={pool}></PoolCard>
         ))}
       </div>
-
-      {/* <SearchBar></SearchBar> */}
     </div>
   );
 };
