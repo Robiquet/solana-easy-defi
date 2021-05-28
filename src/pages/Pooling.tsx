@@ -5,7 +5,7 @@ import SearchBar from "../components/SearchBar";
 
 const Pooling = () => {
   const [pools, setPools] = useState<PoolDetails[]>([]);
-  const [filterPools, setFilterPools] = useState<PoolDetails[]>([]);
+  const [processedPools, setProcessedPools] = useState<PoolDetails[]>([]);
   const [usdAmount, setUsdAmount] = useState<number>();
   const [timePeriod, setTimePeriod] = useState<number>();
   const [search, setSearch] = useState<string>("");
@@ -71,7 +71,7 @@ const Pooling = () => {
               : undefined,
         };
       });
-    setFilterPools(newPools);
+    setProcessedPools(newPools);
   };
 
   const calculateYield = (
@@ -106,7 +106,7 @@ const Pooling = () => {
       </div>
 
       <div className="flex flex-wrap w-full gap-y-10 gap-x-10">
-        {filterPools.map((pool, index) => (
+        {processedPools.map((pool, index) => (
           <PoolCard key={index} details={pool}></PoolCard>
         ))}
       </div>

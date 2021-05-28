@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
 import Dropdown, { DropdownOption } from "../components/Dropdown";
 import FarmCard, { FarmDetails } from "../components/FarmCard";
+import SearchBar from "../components/SearchBar";
 
 const Farming = () => {
   const [farms, setFarms] = useState<FarmDetails[]>([]);
+  const [processedFarms, setProcessedFarms] = useState<FarmDetails[]>([]);
   const [usdAmount, setUsdAmount] = useState<number>();
   const [timePeriod, setTimePeriod] = useState<number>();
+  const [search, setSearch] = useState<string>("");
 
   const timeOptions = [
     {
@@ -27,18 +30,18 @@ const Farming = () => {
   ];
 
   useEffect(() => {
-    async function checkConnection() {
+    async function getFarms() {
       const response = await fetch("https://api.radardefi.com/farms");
       const json = await response.json();
       setFarms(json);
     }
 
-    checkConnection();
+    getFarms();
   }, []);
 
   useEffect(() => {
-    recalulateFarmReturns();
-  }, [timePeriod, usdAmount]);
+    processFarms();
+  }, [timePeriod, usdAmount, search, farms]);
 
   const handleUsdChange = (event: any) => {
     setUsdAmount(event.target.value);
@@ -48,18 +51,29 @@ const Farming = () => {
     setTimePeriod(option?.value);
   };
 
-  const recalulateFarmReturns = () => {
-    const newPools = farms.map((farm) => {
-      return {
-        ...farm,
-        totalYield:
-          timePeriod && usdAmount
-            ? calculateYield(timePeriod, usdAmount, farm)
-            : undefined,
-      };
-    });
+  const handleSearchChange = (search: string) => {
+    setSearch(search);
+  };
 
-    setFarms(newPools);
+  const processFarms = () => {
+    const newPools = farms
+      .filter(
+        (farm) =>
+          search === "" ||
+          farm.tokenA?.includes(search) ||
+          farm.tokenB?.includes(search)
+      )
+      .map((farm) => {
+        return {
+          ...farm,
+          totalYield:
+            timePeriod && usdAmount
+              ? calculateYield(timePeriod, usdAmount, farm)
+              : undefined,
+        };
+      });
+
+    setProcessedFarms(newPools);
   };
 
   const calculateYield = (
@@ -88,15 +102,17 @@ const Farming = () => {
           options={timeOptions}
           onChange={handleTimePeriodChange}
         ></Dropdown>
+        <SearchBar
+          placeHolder="Choose a farm"
+          onChange={handleSearchChange}
+        ></SearchBar>
       </div>
 
       <div className="flex flex-wrap w-full gap-y-10 gap-x-10">
-        {farms.map((farm, index) => (
+        {processedFarms.map((farm, index) => (
           <FarmCard key={index} details={farm}></FarmCard>
         ))}
       </div>
-
-      {/* <SearchBar></SearchBar> */}
     </div>
   );
 };
