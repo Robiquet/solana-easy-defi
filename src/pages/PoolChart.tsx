@@ -42,13 +42,18 @@ const PoolChart = () => {
     const tabs: ChartTab[] = [];
 
     tabs.push({
-      title: "drawdown",
+      title: "Drawdown",
       data: mapResponseToChartData(data.drawdown),
     });
 
     tabs.push({
-      title: "il",
+      title: "Impermanent Loss",
       data: mapResponseToChartData(data.il),
+    });
+
+    tabs.push({
+      title: "Profit & Loss",
+      data: mapResponseToChartData(data.pnl),
     });
 
     return { tabs: tabs };
