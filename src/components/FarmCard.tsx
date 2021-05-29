@@ -1,3 +1,5 @@
+import { useHistory } from "react-router-dom";
+
 export interface FarmDetails {
   id: string;
   tokenA: string;
@@ -8,8 +10,17 @@ export interface FarmDetails {
 }
 
 const FarmCard = ({ details }: { details: FarmDetails }) => {
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.push(`farming/${details.id}`);
+  };
+
   return (
-    <div className="flex flex-col rounded bg-green-200 p-5 w-64 ">
+    <div
+      onClick={handleClick}
+      className="flex flex-col rounded bg-green-200 p-5 w-64 cursor-pointer"
+    >
       <h3 className="text-2xl font-bold mb-3">
         {details?.tokenA} - {details?.tokenB}
       </h3>
