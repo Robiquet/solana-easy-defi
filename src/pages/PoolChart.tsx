@@ -40,33 +40,32 @@ const PoolChart = () => {
     data
   ) => {
     const tabs: ChartTab[] = [];
-    const drawDownTabData: ChartTabData[] = [];
-    data.drawdown.timestamp.forEach((time, index) => {
-      drawDownTabData.push({
-        x: new Date(time),
-        y: data.drawdown.value[index],
-      });
-    });
 
     tabs.push({
       title: "drawdown",
-      data: drawDownTabData,
-    });
-
-    const ilData: ChartTabData[] = [];
-    data.il.timestamp.forEach((time, index) => {
-      ilData.push({
-        x: new Date(time),
-        y: data.il.value[index],
-      });
+      data: mapResponseToChartData(data.drawdown),
     });
 
     tabs.push({
       title: "il",
-      data: ilData,
+      data: mapResponseToChartData(data.il),
     });
 
     return { tabs: tabs };
+  };
+
+  const mapResponseToChartData: (metric: PoolMetric) => ChartTabData[] = (
+    metric
+  ) => {
+    const data: ChartTabData[] = [];
+    metric.timestamp.forEach((time, index) => {
+      data.push({
+        x: new Date(time),
+        y: metric.value[index],
+      });
+    });
+
+    return data;
   };
 
   return (
