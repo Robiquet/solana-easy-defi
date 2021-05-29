@@ -8,7 +8,7 @@ import Farming from "./pages/Farming";
 import Home from "./pages/Home.js";
 import OnBoarding from "./pages/Onboarding";
 import PoolChart from "./pages/PoolChart";
-import Poolng from "./pages/Pooling";
+import Pooling from "./pages/Pooling";
 
 function App() {
   return (
@@ -23,17 +23,13 @@ function App() {
             <Route path="/dashboard">
               <Dashboard />
             </Route>
-            <Route path="/pooling">
-              <Poolng />
-            </Route>
+            <Route exact path="/pooling" component={Pooling} />
+            <Route path="/pooling/:id" component={PoolChart} />
             <Route path="/farming">
               <Farming />
             </Route>
             <Route path="/onboarding">
               <OnBoarding />
-            </Route>
-            <Route path="/pool-chart">
-              <PoolChart />
             </Route>
           </Switch>
         </main>

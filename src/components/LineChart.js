@@ -16,12 +16,12 @@ const LineChart = ({ data }) => {
     () => [
       {
         primary: true,
-        type: "linear",
+        type: "utc",
         position: "bottom",
         showGrid: false,
-        showTicks: false,
+        showTicks: true,
       },
-      { type: "linear", position: "left", showGrid: false, showTicks: false },
+      { type: "linear", position: "left", showGrid: false, showTicks: true },
     ],
     []
   );

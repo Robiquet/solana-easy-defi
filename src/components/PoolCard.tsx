@@ -14,7 +14,7 @@ const PoolCard = ({ details }: { details: PoolDetails }) => {
   const history = useHistory();
 
   const handleClick = () => {
-    history.push("pool-chart");
+    history.push(`pooling/${details.id}`);
   };
 
   return (
