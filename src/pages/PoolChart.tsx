@@ -21,14 +21,12 @@ interface PoolMetric {
 
 const PoolChart = () => {
   const { id } = useParams<{ id: string }>();
-  const [poolChartData, setPoolChartData] = useState();
   const [chartConfig, setChartConfig] = useState<TabbedChartConfig>();
 
   useEffect(() => {
     async function getPoolDetails() {
       const response = await fetch(`https://api.radardefi.com/pool/${id}`);
       const json = await response.json();
-      setPoolChartData(json);
       const tabConfig = createChartConfig(json);
       setChartConfig(tabConfig);
     }
