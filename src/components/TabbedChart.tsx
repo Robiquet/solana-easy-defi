@@ -7,7 +7,7 @@ export interface TabbedChartConfig {
 
 export interface ChartTab {
   title: string;
-  data: ChartTabData[];
+  dataSets: ChartTabData[][];
 }
 
 export interface ChartTabData {
@@ -76,7 +76,7 @@ const TabbedChart = ({ config }: { config?: TabbedChartConfig }) => {
 
   return (
     <div className="flex">
-      <LineChart data={config?.tabs[tabIndex].data}></LineChart>
+      <LineChart dataSets={config?.tabs[tabIndex].dataSets}></LineChart>
       <div className="flex flex-col ml-2 space-y-2">
         <h4 className="font-bold text-lg mt-2">Metrics</h4>
         {config?.tabs.map((tab, index) => (

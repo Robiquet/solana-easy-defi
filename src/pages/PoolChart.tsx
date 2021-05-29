@@ -43,17 +43,25 @@ const PoolChart = () => {
 
     tabs.push({
       title: "Drawdown",
-      data: mapResponseToChartData(data.drawdown),
+      dataSets: [mapResponseToChartData(data.drawdown)],
     });
 
     tabs.push({
       title: "Impermanent Loss",
-      data: mapResponseToChartData(data.il),
+      dataSets: [mapResponseToChartData(data.il)],
     });
 
     tabs.push({
       title: "Profit & Loss",
-      data: mapResponseToChartData(data.pnl),
+      dataSets: [mapResponseToChartData(data.pnl)],
+    });
+
+    tabs.push({
+      title: "Price of tokens",
+      dataSets: [
+        mapResponseToChartData(data.tokenAprice),
+        mapResponseToChartData(data.tokenBprice),
+      ],
     });
 
     return { tabs: tabs };
@@ -74,7 +82,7 @@ const PoolChart = () => {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-4 ml-4">
       {chartConfig ? <TabbedChart config={chartConfig}></TabbedChart> : <></>}
     </div>
   );

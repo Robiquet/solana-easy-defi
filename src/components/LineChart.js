@@ -1,15 +1,16 @@
 import React from "react";
 import { Chart } from "react-charts";
 
-const LineChart = ({ data }) => {
+const LineChart = ({ dataSets }) => {
   const memoData = React.useMemo(
-    () => [
-      {
-        label: "Series 1",
-        data: data.map((item) => [item.x, item.y]),
-      },
-    ],
-    [data]
+    () =>
+      dataSets.map((dataSet, index) => {
+        return {
+          label: index.toString(),
+          data: dataSet.map((item) => [item.x, item.y]),
+        };
+      }),
+    [dataSets]
   );
 
   const axes = React.useMemo(
