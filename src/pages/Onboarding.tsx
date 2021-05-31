@@ -19,7 +19,7 @@ const OnBoarding = () => {
       title: "Automate",
       description: "Automate trading with battle-tested strategies.",
       buttonText: "Choose Bot",
-      buttonLink: "Staking",
+      buttonLink: "bots",
     },
   ];
 

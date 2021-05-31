@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { StyleSheetManager } from "styled-components";
 import "./App.css";
 import LeftNav from "./components/LeftNav";
+import Bots from "./pages/Bots";
 import Dashboard from "./pages/Dashboard";
 import FarmChart from "./pages/FarmChart";
 import Farming from "./pages/Farming";
@@ -28,6 +29,9 @@ function App() {
             <Route path="/pooling/:id" component={PoolChart} />
             <Route exact path="/farming" component={Farming} />
             <Route path="/farming/:id" component={FarmChart} />
+            <Route path="/bots">
+              <Bots />
+            </Route>
             <Route path="/onboarding">
               <OnBoarding />
             </Route>

@@ -71,6 +71,10 @@ const links = [
     to: "/farming",
     text: "Farming",
   },
+  {
+    to: "/bots",
+    text: "Bots",
+  },
 ];
 
 const LeftNav = () => {
