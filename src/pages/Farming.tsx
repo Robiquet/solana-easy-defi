@@ -86,7 +86,7 @@ const Farming = () => {
 
   return (
     <div className="flex flex-col md:h-screen ml-4 flex-grow mt-4 ">
-      <div className="font-bold text-2xl mb-4">Choose a Pool</div>
+      <div className="font-bold text-2xl mb-4">Choose a Farm</div>
       <div className="flex space-x-5 mb-5">
         <input
           value={usdAmount}
