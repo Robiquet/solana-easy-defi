@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
   toolbar: {
     display: "flex",
     alignItems: "center",
-    justifyContent: "flex-end",
+    justifyContent: "space-between",
     padding: theme.spacing(0, 1),
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
@@ -113,6 +113,15 @@ const LeftNav = () => {
       }}
     >
       <div className={classes.toolbar}>
+        {open ? (
+          <>
+            <img src="/logo.png" alt="App Logo" width="40" height="40"></img>
+            <h1 className="text-3xl font-black">Radar</h1>
+          </>
+        ) : (
+          <></>
+        )}
+
         <IconButton onClick={handleDrawerClick}>
           {open === true ? <ChevronLeftIcon /> : <MenuIcon />}
         </IconButton>
