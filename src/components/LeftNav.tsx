@@ -10,6 +10,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import clsx from "clsx";
 import { useState, useLayoutEffect } from "react";
 import { useHistory } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { IconProp } from "@fortawesome/fontawesome-svg-core";
 
 const drawerWidth = 240;
 
@@ -50,30 +52,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const links = [
+const links: { to: string; text: string; icon: IconProp }[] = [
   {
     to: "/",
     text: "Home",
-  },
-  {
-    to: "/onboarding",
-    text: "Onboarding",
+    icon: "home",
   },
   {
     to: "/dashboard",
     text: "Dashboard",
+    icon: "columns",
   },
   {
     to: "/pooling",
     text: "Pooling",
+    icon: "swimmer",
   },
   {
     to: "/farming",
     text: "Farming",
+    icon: "tractor",
   },
   {
     to: "/bots",
     text: "Bots",
+    icon: "robot",
   },
 ];
 
@@ -115,7 +118,7 @@ const LeftNav = () => {
       <div className={classes.toolbar}>
         {open ? (
           <>
-            <img src="/logo.png" alt="App Logo" width="40" height="40"></img>
+            <img src="/logo.png" alt="App Logo" width="32" height="32"></img>
             <h1 className="text-3xl font-black">Radar</h1>
           </>
         ) : (
@@ -135,7 +138,7 @@ const LeftNav = () => {
             onClick={() => handleLinkClick(index)}
           >
             <ListItemIcon>
-              <MenuIcon />
+              <FontAwesomeIcon icon={link.icon} />
             </ListItemIcon>
             <div className="font-semibold">{link.text}</div>
           </ListItem>

@@ -11,6 +11,16 @@ import Home from "./pages/Home.js";
 import OnBoarding from "./pages/Onboarding";
 import PoolChart from "./pages/PoolChart";
 import Pooling from "./pages/Pooling";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faHome,
+  faRobot,
+  faTractor,
+  faColumns,
+  faSwimmer,
+} from "@fortawesome/free-solid-svg-icons";
+
+library.add(faHome, faRobot, faTractor, faColumns, faSwimmer);
 
 function App() {
   return (
