@@ -59,8 +59,8 @@ const Pooling = () => {
       .filter(
         (pool) =>
           search === "" ||
-          pool.tokenA?.includes(search) ||
-          pool.tokenB?.includes(search)
+          pool.tokenA?.toUpperCase().includes(search.toUpperCase()) ||
+          pool.tokenB?.toUpperCase().includes(search.toUpperCase())
       )
       .map((pool) => {
         return {

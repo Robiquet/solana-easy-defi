@@ -60,8 +60,8 @@ const Farming = () => {
       .filter(
         (farm) =>
           search === "" ||
-          farm.tokenA?.includes(search) ||
-          farm.tokenB?.includes(search)
+          farm.tokenA?.toUpperCase().includes(search.toUpperCase()) ||
+          farm.tokenB?.toUpperCase().includes(search.toUpperCase())
       )
       .map((farm) => {
         return {
