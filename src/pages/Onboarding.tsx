@@ -8,18 +8,21 @@ const OnBoarding = () => {
       description: "Become a liquidity provider and earn a trading fee.",
       buttonText: "Find a Pool",
       buttonLink: "pooling",
+      color: "light-red",
     },
     {
       title: "Stake",
       description: "Stake your asset for a risk free return.",
       buttonText: "Start Staking",
       buttonLink: "farming",
+      color: "light-purple",
     },
     {
       title: "Automate",
       description: "Automate trading with battle-tested strategies.",
       buttonText: "Choose Bot",
       buttonLink: "bots",
+      color: "light-green",
     },
   ];
 

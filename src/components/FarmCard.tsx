@@ -19,7 +19,7 @@ const FarmCard = ({ details }: { details: FarmDetails }) => {
   return (
     <div
       onClick={handleClick}
-      className="flex flex-col rounded bg-green-200 p-5 w-64 cursor-pointer"
+      className="flex flex-col rounded bg-light-green p-5 w-64 cursor-pointer"
     >
       <h3 className="text-2xl font-bold mb-3">
         {details?.tokenA} - {details?.tokenB}

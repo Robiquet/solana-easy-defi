@@ -20,7 +20,7 @@ const PoolCard = ({ details }: { details: PoolDetails }) => {
   return (
     <div
       onClick={handleClick}
-      className="flex flex-col rounded bg-green-200 p-5 cursor-pointer w-64 "
+      className="flex flex-col rounded bg-light-green p-5 cursor-pointer w-64 "
     >
       <h3 className="text-2xl font-bold mb-3">
         {details?.tokenA} - {details?.tokenB}

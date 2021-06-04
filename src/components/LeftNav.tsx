@@ -58,11 +58,11 @@ const links: { to: string; text: string; icon: IconProp }[] = [
     text: "Home",
     icon: "home",
   },
-  {
-    to: "/dashboard",
-    text: "Dashboard",
-    icon: "columns",
-  },
+  // {
+  //   to: "/dashboard",
+  //   text: "Dashboard",
+  //   icon: "columns",
+  // },
   {
     to: "/pooling",
     text: "Pooling",

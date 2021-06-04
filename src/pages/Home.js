@@ -4,25 +4,26 @@ import { useState } from "react";
 import FeatureCard from "../components/FeatureCard";
 import { useHistory } from "react-router-dom";
 
-
 const Home = () => {
   const [balance, setBalance] = useState();
   const [publicKey, setPublicKey] = useState();
   const history = useHistory();
 
-
   const features = [
     {
+      color: "light-purple",
       title: "Liquidity",
       description:
         "Get an overview of APR on all the liquidity pools. Including historical average and future projections.",
     },
     {
+      color: "light-green",
       title: "Stake",
       description:
         "Stake your assets in one click and never let your assets sit idle in your account. No one likes freeloaders.",
     },
     {
+      color: "light-red",
       title: "Automate",
       description:
         "Onchain strategies to automate your trading. Let Bots do the trading.",
@@ -45,8 +46,7 @@ const Home = () => {
       "8KDdfccDqh1yrShSLqdVUyukt8mX5r6HEEPWUUFosEHF"
     );
     console.log(await connection.getTokenAccountBalance(tokenaddress));
-    history.push('/onboarding');
-
+    history.push("/onboarding");
   };
 
   return (
@@ -58,7 +58,14 @@ const Home = () => {
         DeFi is complicated, we make it simple
       </h2>
       <div className="flex flex-wrap justify-evenly w-full">
-        {features.map((feature,index) => <FeatureCard key={index} title={feature.title} description={feature.description}></FeatureCard>)}
+        {features.map((feature, index) => (
+          <FeatureCard
+            key={index}
+            title={feature.title}
+            description={feature.description}
+            color={feature.color}
+          ></FeatureCard>
+        ))}
       </div>
       <button
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52"
@@ -66,8 +73,6 @@ const Home = () => {
       >
         Connect Wallet
       </button>
-      <div>{balance}</div>
-      <div>{publicKey}</div>
     </div>
   );
 };
