@@ -5,6 +5,7 @@ import TabbedChart, {
   ChartTabData,
   TabbedChartConfig,
 } from "../components/TabbedChart";
+import { calculateAverageMagnitude } from "../utils/calculate-average-magintude";
 
 interface PoolAPIDetails {
   drawdown: PoolMetric;
@@ -54,12 +55,21 @@ const PoolChart = () => {
       dataSets: [mapResponseToChartData(data.pnl)],
     });
 
+    const tokenAAverage = calculateAverageMagnitude(data.tokenAprice.value);
+    const tokenBAverage = calculateAverageMagnitude(data.tokenBprice.value);
+
     tabs.push({
       title: "Price of tokens",
-      dataSets: [
-        mapResponseToChartData(data.tokenAprice),
-        mapResponseToChartData(data.tokenBprice),
-      ],
+      dataSets:
+        tokenAAverage > tokenBAverage
+          ? [
+              mapResponseToChartData(data.tokenBprice),
+              mapResponseToChartData(data.tokenAprice),
+            ]
+          : [
+              mapResponseToChartData(data.tokenAprice),
+              mapResponseToChartData(data.tokenBprice),
+            ],
     });
 
     return { tabs: tabs };
