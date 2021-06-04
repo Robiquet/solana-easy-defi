@@ -32,7 +32,7 @@ const OnBoarding = () => {
       <h2 className="font-semibold text-lg mb-6">
         We help you make better choices
       </h2>
-      <div className="flex flex-wrap w-full h-full gap-10">
+      <div className="flex flex-wrap w-full h-full gap-10 ml-4">
         {options.map((option, index) => (
           <StartCard key={index} details={option}></StartCard>
         ))}

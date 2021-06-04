@@ -50,14 +50,14 @@ const Home = () => {
   };
 
   return (
-    <div className="flex flex-col md:h-screen justify-around ml-4 flex-grow">
-      <h1 className="font-bold text-2xl">
+    <div className="md:h-screen ml-4 mt-4 ">
+      <h1 className="font-bold text-2xl mb-4">
         DeFi Investing shouldn't be Rocket Science
       </h1>
-      <h2 className="font-semibold text-lg">
+      <h2 className="font-semibold text-lg mb-6">
         DeFi is complicated, we make it simple
       </h2>
-      <div className="flex flex-wrap justify-evenly w-full">
+      <div className="flex flex-wrap w-full gap-10 mb-8">
         {features.map((feature, index) => (
           <FeatureCard
             key={index}
@@ -68,7 +68,7 @@ const Home = () => {
         ))}
       </div>
       <button
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52"
+        className="bg-cyan hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full w-52"
         onClick={handleConnect}
       >
         Connect Wallet

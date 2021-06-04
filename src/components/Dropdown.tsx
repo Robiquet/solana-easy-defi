@@ -19,8 +19,8 @@ const Dropdown = ({
   return (
     <select
       onChange={handleChange}
-      className="bg-blue-500 py-2 pl-4 text-sm text-white w-44 rounded-md  focus:outline-none focus:appearance-none rounded-full"
-      defaultValue=""    
+      className="bg-cyan py-2 pl-4 text-sm text-white w-44 rounded-md  focus:outline-none focus:appearance-none rounded-full"
+      defaultValue=""
     >
       <option value="" disabled>
         {placeholder}

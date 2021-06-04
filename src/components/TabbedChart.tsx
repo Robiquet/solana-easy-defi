@@ -81,7 +81,7 @@ const TabbedChart = ({ config }: { config?: TabbedChartConfig }) => {
         <h4 className="font-bold text-lg mt-2">Metrics</h4>
         {config?.tabs.map((tab, index) => (
           <button
-            className="bg-blue-500 hover:bg-blue-700 text-sm text-white font-bold py-1 px-1 rounded-full w-44"
+            className="bg-cyan hover:bg-blue-700 text-sm text-white font-bold py-1 px-1 rounded-full w-44"
             key={index}
             onClick={() => handleTabSelection(index)}
           >
