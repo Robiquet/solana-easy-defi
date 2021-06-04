@@ -35,13 +35,15 @@ const LineChart = ({ dataSets }) => {
   );
 
   return (
-    <div
-      style={{
-        width: "400px",
-        height: "300px",
-      }}
-    >
-      <Chart data={memoData} axes={axes} series={series} />
+    <div className="bg-indigo-900 rounded-xl p-4">
+      <div
+        style={{
+          width: "60vw",
+          height: "80vh",
+        }}
+      >
+        <Chart data={memoData} axes={axes} series={series} />
+      </div>
     </div>
   );
 };
