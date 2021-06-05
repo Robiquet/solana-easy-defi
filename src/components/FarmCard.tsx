@@ -23,7 +23,7 @@ const FarmCard = ({ details }: { details: FarmDetails }) => {
       onClick={handleClick}
       className="flex flex-col rounded bg-light-green p-5 w-64 cursor-pointer"
     >
-      <h3 className="text-2xl font-bold mb-3 uppercase">
+      <h3 className="text-lg font-bold mb-3 uppercase">
         {details?.tokenA} - {details?.tokenB}
       </h3>
       <div className="flex justify-between w-full">

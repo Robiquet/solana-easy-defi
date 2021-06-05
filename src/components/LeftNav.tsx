@@ -78,6 +78,11 @@ const links: { to: string; text: string; icon: IconProp }[] = [
     text: "Bots",
     icon: "robot",
   },
+  {
+    to: "/about",
+    text: "About",
+    icon: "users",
+  },
 ];
 
 const LeftNav = () => {

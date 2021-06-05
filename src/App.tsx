@@ -18,9 +18,11 @@ import {
   faTractor,
   faColumns,
   faSwimmer,
+  faUsers,
 } from "@fortawesome/free-solid-svg-icons";
+import About from "./pages/About";
 
-library.add(faHome, faRobot, faTractor, faColumns, faSwimmer);
+library.add(faHome, faRobot, faTractor, faColumns, faSwimmer, faUsers);
 
 function App() {
   return (
@@ -44,6 +46,9 @@ function App() {
             </Route>
             <Route path="/onboarding">
               <OnBoarding />
+            </Route>
+            <Route path="/about">
+              <About />
             </Route>
           </Switch>
         </main>

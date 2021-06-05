@@ -90,6 +90,7 @@ const Pooling = () => {
           value={usdAmount}
           onChange={handleUsdChange}
           type="number"
+          min="0"
           className="py-2 pl-4 text-sm text-gray-800 bg-gray-100 w-44 rounded-md focus:outline-none focus:appearance-none appearance-none rounded-full block"
           placeholder="Enter USD"
           autoComplete="off"
