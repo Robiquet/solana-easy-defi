@@ -103,7 +103,7 @@ const Farming = () => {
           onChange={handleTimePeriodChange}
         ></Dropdown>
         <SearchBar
-          placeHolder="Choose a farm"
+          placeHolder="Search a farm"
           onChange={handleSearchChange}
         ></SearchBar>
       </div>

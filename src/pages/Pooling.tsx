@@ -100,7 +100,7 @@ const Pooling = () => {
           onChange={handleTimePeriodChange}
         ></Dropdown>
         <SearchBar
-          placeHolder="Choose a pool"
+          placeHolder="Search a pool"
           onChange={handleSearchChange}
         ></SearchBar>
       </div>
