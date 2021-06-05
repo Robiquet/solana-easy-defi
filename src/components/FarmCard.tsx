@@ -1,4 +1,6 @@
 import { useHistory } from "react-router-dom";
+import { formatCurrency } from "../utils/format-currency";
+import { formatPercentage } from "../utils/format-percentage";
 
 export interface FarmDetails {
   id: string;
@@ -27,19 +29,19 @@ const FarmCard = ({ details }: { details: FarmDetails }) => {
       <div className="flex justify-between w-full">
         <div className="font-normal text-base text-center">Total Yield</div>
         <div className="font-normal text-base text-center bg-black text-white font-bold py-1 px-2 rounded-full">
-          ${details.totalYield}
+          {details?.totalYield ? formatCurrency(details.totalYield) : "?"}
         </div>
       </div>
       <div className="flex justify-between w-full">
         <div className="font-normal text-base text-center">APR</div>
         <div className="font-normal text-base text-center">
-          {details.total_apr}%
+          {formatPercentage(details.total_apr)}
         </div>
       </div>
       <div className="flex justify-between w-full">
         <div className="font-normal text-base text-center">Liquidity</div>
         <div className="font-normal text-base text-center">
-          {details.liquidity}
+          {formatCurrency(details.liquidity)}
         </div>
       </div>
     </div>
