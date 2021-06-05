@@ -28,7 +28,8 @@ const Bots = () => {
   const processBots = () => {
     const prcoessedBots = bots.filter(
       (bot) =>
-        search === "" || bot.market.toUpperCase().includes(search.toUpperCase())
+        search === "" ||
+        bot.bot_name.toUpperCase().includes(search.toUpperCase())
     );
 
     setProcessedBots(prcoessedBots);
@@ -39,7 +40,7 @@ const Bots = () => {
       <div className="font-bold text-2xl mb-4">Choose a Bot</div>
       <div className="flex space-x-5 mb-5">
         <SearchBar
-          placeHolder="Choose a farm"
+          placeHolder="Search a bot"
           onChange={handleSearchChange}
         ></SearchBar>
       </div>

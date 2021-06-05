@@ -12,22 +12,16 @@ export interface BotDetails {
 }
 
 const BotCard = ({ details }: { details: BotDetails }) => {
-  const history = useHistory();
-
   const handleClick = () => {
-    history.push(`bots/${details.id}`);
+    window.location.href = details.bonfida_pool_link;
   };
-
   return (
-    <div
-      onClick={handleClick}
-      className="flex flex-col rounded bg-light-green p-5 w-64 cursor-pointer"
-    >
-      <h3 className="text-2xl font-bold mb-3">{details.market}</h3>
+    <div className="flex flex-col rounded bg-light-green p-5 w-64">
+      <h3 className="text-2xl font-bold mb-3 capitalize">{details.bot_name}</h3>
       <div className="flex justify-between w-full">
-        <div className="font-normal text-base text-center">Overall Returns</div>
-        <div className="font-normal text-base text-center bg-black text-white font-bold py-1 px-2 rounded-full">
-          {details.overall_return}
+        <div className="font-normal text-base text-center">Market</div>
+        <div className="font-normal text-base text-center">
+          {details.market}
         </div>
       </div>
       <div className="flex justify-between w-full">
@@ -35,6 +29,30 @@ const BotCard = ({ details }: { details: BotDetails }) => {
         <div className="font-normal text-base text-center">
           {details.max_drawdown}
         </div>
+      </div>
+      <div className="flex justify-between w-full">
+        <div className="font-normal text-base text-center">Overall Return</div>
+        <div className="font-normal text-base text-center">
+          {details.overall_return}
+        </div>
+      </div>
+      <div className="flex justify-between w-full">
+        <div className="font-normal text-base text-center">SAFU factor</div>
+        <div className="font-normal text-base text-center">{details.safu}</div>
+      </div>
+      <div className="flex justify-between w-full">
+        <div className="font-normal text-base text-center">Sharpe Ratio</div>
+        <div className="font-normal text-base text-center">
+          {details.sharpe}
+        </div>
+      </div>
+      <div className="flex flex-col items-center mt-4">
+        <button
+          className="bg-cyan hover:bg-blue-700 text-white font-bold py-1 px-2 rounded-full w-32"
+          onClick={handleClick}
+        >
+          Invest
+        </button>
       </div>
     </div>
   );
