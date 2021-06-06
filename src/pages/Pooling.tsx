@@ -6,8 +6,8 @@ import SearchBar from "../components/SearchBar";
 const Pooling = () => {
   const [pools, setPools] = useState<PoolDetails[]>([]);
   const [processedPools, setProcessedPools] = useState<PoolDetails[]>([]);
-  const [usdAmount, setUsdAmount] = useState<number>();
-  const [timePeriod, setTimePeriod] = useState<number>();
+  const [usdAmount, setUsdAmount] = useState<number>(100);
+  const [timePeriod, setTimePeriod] = useState<number>(0.5);
   const [search, setSearch] = useState<string>("");
 
   const timeOptions = [
@@ -97,7 +97,7 @@ const Pooling = () => {
           autoComplete="off"
         ></input>
         <Dropdown
-          placeholder="Choose Period"
+          placeholder="6 Months"
           options={timeOptions}
           onChange={handleTimePeriodChange}
         ></Dropdown>
