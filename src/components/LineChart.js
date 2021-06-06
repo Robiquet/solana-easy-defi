@@ -34,15 +34,6 @@ const LineChart = ({ dataSets, yLabel }) => {
     []
   );
 
-  const cursor = React.useMemo(
-    () => ({
-      showLabel: true,
-      showLine: true,
-      snap: true,
-    }),
-    []
-  );
-
   return (
     <div className="bg-indigo-500 rounded-xl p-4 flex items-center	 justify-center">
       <div style={{ transform: "rotate(-90deg)" }}>{yLabel}</div>
@@ -52,7 +43,7 @@ const LineChart = ({ dataSets, yLabel }) => {
           height: "80vh",
         }}
       >
-        <Chart data={memoData} axes={axes} series={series} tooltip />
+        <Chart data={memoData} axes={axes} series={series} />
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ interface FarmAPIDetails {
   pnl: FarmMetric;
   tokenAprice: FarmMetric;
   tokenBprice: FarmMetric;
+  investUrl: string;
 }
 
 interface FarmMetric {
@@ -22,13 +23,15 @@ interface FarmMetric {
 const FarmChart = () => {
   const { id } = useParams<{ id: string }>();
   const [chartConfig, setChartConfig] = useState<TabbedChartConfig>();
+  const [investUrl, setInvestUrl] = useState<string>();
 
   useEffect(() => {
     async function getFarmDetails() {
       const response = await fetch(`https://api.radardefi.com/farm/${id}`);
-      const json = await response.json();
+      const json: FarmAPIDetails = await response.json();
       const tabConfig = createChartConfig(json);
       setChartConfig(tabConfig);
+      setInvestUrl(json.investUrl);
     }
 
     getFarmDetails();
@@ -80,9 +83,19 @@ const FarmChart = () => {
     return data;
   };
 
+  const handleInvestClick = () => {
+    if (investUrl) window.location.href = investUrl;
+  };
+
   return (
     <div className="mt-4 ml-4">
       {chartConfig ? <TabbedChart config={chartConfig}></TabbedChart> : <></>}
+      <button
+        className="bg-blue-500 shadow-2xl hover:bg-blue-700 text-sm text-white font-bold py-1 px-1 rounded-full w-32 mt-4 "
+        onClick={() => handleInvestClick()}
+      >
+        Invest
+      </button>
     </div>
   );
 };

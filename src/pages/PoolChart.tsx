@@ -14,6 +14,7 @@ interface PoolAPIDetails {
   holdPnl: PoolMetric;
   tokenAprice: PoolMetric;
   tokenBprice: PoolMetric;
+  investUrl: string;
 }
 
 interface PoolMetric {
@@ -24,13 +25,15 @@ interface PoolMetric {
 const PoolChart = () => {
   const { id } = useParams<{ id: string }>();
   const [chartConfig, setChartConfig] = useState<TabbedChartConfig>();
+  const [investUrl, setInvestUrl] = useState<string>();
 
   useEffect(() => {
     async function getPoolDetails() {
       const response = await fetch(`https://api.radardefi.com/pool/${id}`);
-      const json = await response.json();
+      const json: PoolAPIDetails = await response.json();
       const tabConfig = createChartConfig(json);
       setChartConfig(tabConfig);
+      setInvestUrl(json.investUrl);
     }
 
     getPoolDetails();
@@ -88,9 +91,19 @@ const PoolChart = () => {
     return data;
   };
 
+  const handleInvestClick = () => {
+    if (investUrl) window.location.href = investUrl;
+  };
+
   return (
     <div className="mt-4 ml-4">
       {chartConfig ? <TabbedChart config={chartConfig}></TabbedChart> : <></>}
+      <button
+        className="bg-blue-500 shadow-2xl hover:bg-blue-700 text-sm text-white font-bold py-1 px-1 rounded-full w-32 mt-4 "
+        onClick={() => handleInvestClick()}
+      >
+        Invest
+      </button>
     </div>
   );
 };
