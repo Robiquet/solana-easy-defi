@@ -46,6 +46,7 @@ const PoolChart = () => {
 
     tabs.push({
       title: "Price of tokens",
+      yLabel: "Price($)",
       dataSets:
         tokenAAverage > tokenBAverage
           ? [
@@ -60,11 +61,13 @@ const PoolChart = () => {
 
     tabs.push({
       title: "Impermanent Loss",
+      yLabel: "Loss(%)",
       dataSets: [mapResponseToChartData(data.il)],
     });
 
     tabs.push({
       title: "Profit & Loss",
+      yLabel: "Profit($)",
       dataSets: [mapResponseToChartData(data.pnl)],
     });
 

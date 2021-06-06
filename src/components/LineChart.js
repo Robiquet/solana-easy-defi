@@ -1,7 +1,7 @@
 import React from "react";
 import { Chart } from "react-charts";
 
-const LineChart = ({ dataSets }) => {
+const LineChart = ({ dataSets, yLabel }) => {
   const memoData = React.useMemo(
     () =>
       dataSets.map((dataSet, index) => {
@@ -34,15 +34,25 @@ const LineChart = ({ dataSets }) => {
     []
   );
 
+  const cursor = React.useMemo(
+    () => ({
+      showLabel: true,
+      showLine: true,
+      snap: true,
+    }),
+    []
+  );
+
   return (
-    <div className="bg-indigo-500 rounded-xl p-4">
+    <div className="bg-indigo-500 rounded-xl p-4 flex items-center	 justify-center">
+      <div style={{ transform: "rotate(-90deg)" }}>{yLabel}</div>
       <div
         style={{
           width: "60vw",
           height: "80vh",
         }}
       >
-        <Chart data={memoData} axes={axes} series={series} />
+        <Chart data={memoData} axes={axes} series={series} tooltip />
       </div>
     </div>
   );
