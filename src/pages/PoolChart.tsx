@@ -63,21 +63,9 @@ const PoolChart = () => {
       dataSets: [mapResponseToChartData(data.il)],
     });
 
-    const pnlAverage = calculateAverageMagnitude(data.pnl.value);
-    const holdPnlAverage = calculateAverageMagnitude(data.holdPnl.value);
-
     tabs.push({
       title: "Profit & Loss",
-      dataSets:
-        pnlAverage > holdPnlAverage
-          ? [
-              mapResponseToChartData(data.holdPnl),
-              mapResponseToChartData(data.pnl),
-            ]
-          : [
-              mapResponseToChartData(data.pnl),
-              mapResponseToChartData(data.holdPnl),
-            ],
+      dataSets: [mapResponseToChartData(data.pnl)],
     });
 
     return { tabs: tabs };
