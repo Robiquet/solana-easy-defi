@@ -40,21 +40,6 @@ const PoolChart = () => {
   ) => {
     const tabs: ChartTab[] = [];
 
-    tabs.push({
-      title: "Drawdown",
-      dataSets: [mapResponseToChartData(data.drawdown)],
-    });
-
-    tabs.push({
-      title: "Impermanent Loss",
-      dataSets: [mapResponseToChartData(data.il)],
-    });
-
-    tabs.push({
-      title: "Profit & Loss",
-      dataSets: [mapResponseToChartData(data.pnl)],
-    });
-
     const tokenAAverage = calculateAverageMagnitude(data.tokenAprice.value);
     const tokenBAverage = calculateAverageMagnitude(data.tokenBprice.value);
 
@@ -70,6 +55,16 @@ const PoolChart = () => {
               mapResponseToChartData(data.tokenAprice),
               mapResponseToChartData(data.tokenBprice),
             ],
+    });
+
+    tabs.push({
+      title: "Impermanent Loss",
+      dataSets: [mapResponseToChartData(data.il)],
+    });
+
+    tabs.push({
+      title: "Profit & Loss",
+      dataSets: [mapResponseToChartData(data.pnl)],
     });
 
     return { tabs: tabs };
