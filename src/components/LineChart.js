@@ -39,8 +39,8 @@ const LineChart = ({ dataSets, yLabel }) => {
       <div style={{ transform: "rotate(-90deg)" }}>{yLabel}</div>
       <div
         style={{
-          width: "60vw",
-          height: "80vh",
+          width: "55vw",
+          height: "75vh",
         }}
       >
         <Chart data={memoData} axes={axes} series={series} />
