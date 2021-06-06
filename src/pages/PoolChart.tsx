@@ -11,6 +11,7 @@ interface PoolAPIDetails {
   drawdown: PoolMetric;
   il: PoolMetric;
   pnl: PoolMetric;
+  holdPnl: PoolMetric;
   tokenAprice: PoolMetric;
   tokenBprice: PoolMetric;
 }
@@ -62,9 +63,21 @@ const PoolChart = () => {
       dataSets: [mapResponseToChartData(data.il)],
     });
 
+    const pnlAverage = calculateAverageMagnitude(data.pnl.value);
+    const holdPnlAverage = calculateAverageMagnitude(data.holdPnl.value);
+
     tabs.push({
       title: "Profit & Loss",
-      dataSets: [mapResponseToChartData(data.pnl)],
+      dataSets:
+        pnlAverage > holdPnlAverage
+          ? [
+              mapResponseToChartData(data.holdPnl),
+              mapResponseToChartData(data.pnl),
+            ]
+          : [
+              mapResponseToChartData(data.pnl),
+              mapResponseToChartData(data.holdPnl),
+            ],
     });
 
     return { tabs: tabs };
