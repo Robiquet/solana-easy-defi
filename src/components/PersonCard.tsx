@@ -16,7 +16,7 @@ const PersonCard = ({ person }: { person: Person }) => {
     >
       <img
         src={person.photoURL}
-        alt="App Logo"
+        alt="Avatar"
         className="h-32 w-32 bg-blue-600 rounded-full"
       ></img>
       <div className="text-lg font-semibold my-4">{person.name}</div>
