@@ -20,7 +20,7 @@ const Home = () => {
       color: "light-green",
       title: "Stake",
       description:
-        "Stake your assets in one click and never let your assets sit idle in your account. No one likes freeloaders.",
+        "Stake your assets in one click and never let your assets sit idle in your account.",
     },
     {
       color: "light-red",

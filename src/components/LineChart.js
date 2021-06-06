@@ -35,7 +35,7 @@ const LineChart = ({ dataSets }) => {
   );
 
   return (
-    <div className="bg-indigo-900 rounded-xl p-4">
+    <div className="bg-indigo-500 rounded-xl p-4">
       <div
         style={{
           width: "60vw",

@@ -1,4 +1,4 @@
-import { useHistory } from "react-router-dom";
+import { formatPercentage } from "../utils/format-percentage";
 
 export interface BotDetails {
   id: number;
@@ -27,13 +27,13 @@ const BotCard = ({ details }: { details: BotDetails }) => {
       <div className="flex justify-between w-full">
         <div className="font-normal text-base text-center">Max Drawdown</div>
         <div className="font-normal text-base text-center">
-          {details.max_drawdown}
+          {formatPercentage(details.max_drawdown)}
         </div>
       </div>
       <div className="flex justify-between w-full">
         <div className="font-normal text-base text-center">Overall Return</div>
         <div className="font-normal text-base text-center">
-          {details.overall_return}
+          {formatPercentage(details.overall_return)}
         </div>
       </div>
       <div className="flex justify-between w-full">
